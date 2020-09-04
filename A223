@@ -1,1 +1,8 @@
-
+answers = []
+digits = []
+for i in range(101,1000):
+  number = str(i)
+  digits = [char for char in number]
+  if i%((int(digits[0])+(int(digits[1])+(int(digits[2]))))) == 0:
+    answers.append(i)
+print(answers)
