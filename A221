@@ -1,0 +1,12 @@
+list = []
+values = int(input('Input number of values in array'))
+for i in range(0,values):
+  number = int(input('Input number'))
+  list.append(number)
+def removeduplicates(list):
+  list1 = []
+  for i in range(0,len(list)):
+    if list[i] not in list1:
+      list1.append(list[i])
+  return(list1)
+print(removeduplicates(list))
