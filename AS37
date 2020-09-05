@@ -1,0 +1,15 @@
+word = input('Input word')
+def code(word):
+  word = word.replace('b','bob')
+  word = word.replace('r','ror')
+  word = word.replace('s','sos')
+  return(word)
+
+def decode(word):
+  word = word.replace('bob','b')
+  word = word.replace('ror','r')
+  word = word.replace('sos','s')
+  return(word)
+
+print(code(word))
+print(decode(word))
