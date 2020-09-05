@@ -1,0 +1,19 @@
+list = open('words.txt').read().split()
+list[0] = list[0].replace('"','')
+list[0] = list[0].replace("'","")
+list[0] = list[0].replace(',',' ')
+list1 = list[0].split()
+letters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+values = []
+words = 0
+for i in range(0,20):
+  number = i*(i+1)/2
+  values.append(number)
+for i in range(0,len(list1)):
+  word = [char for char in list1[i]]
+  total = 0
+  for i in range(0,len(word)):
+    total = total + letters.index(word[i]) + 1
+  if total in values:
+    words = words + 1
+print(words)
