@@ -1,0 +1,14 @@
+import random
+message = input('Input message')
+letters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+letters1 = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+random.shuffle(letters1)
+message = [char for char in message]
+string = ''
+for i in range(0,len(message)):
+  if message[i] in letters:
+    index = letters.index(message[i])
+    message[i] = letters1[index]
+for i in range(0,len(message)):
+  string = string+message[i]
+print(string)
