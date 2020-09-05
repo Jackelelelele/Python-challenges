@@ -1,0 +1,24 @@
+n = int(input('Input n'))
+m = int(input('Input m'))
+array = []
+array1 = []
+for i in range(0,m):
+  if i%2 == 0:
+    array.append('.')
+  else:
+    array.append('*')
+for i in range(0,len(array)):
+  if array[i] == '.':
+    array1.append('*')
+  else:
+    array1.append('.')
+for i in range(0,n):
+  string = ''
+  if i%2 == 0:
+    for i in range(0,len(array)):
+      string = string+array[i]
+    print(string)
+  else:
+    for i in range(0,len(array1)):
+      string = string+array1[i]
+    print(string)
