@@ -1,0 +1,22 @@
+mode = input('Code or decode')
+message = input('Input message')
+characters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','1','2','3','4','5','6','7','8','9','0']
+morsecode = ['.- ','-... ','-.-. ','-.. ','. ','..-. ','--. ','.... ','.. ','.--- ','-.- ','.-.. ','-- ','-. ','--- ','.--. ','--.- ','.-. ','... ','- ','..- ','...- ','.-- ','-..- ','-.-- ','--.. ','.---- ','..--- ','...-- ','....- ','..... ','-.... ','--... ','---.. ','----. ','----- ']
+string = ''
+if mode == 'code':
+  message = [char for char in message]
+  for i in range(0,len(message)):
+    if message[i] in characters:
+      index = characters.index(message[i])
+      message[i] = morsecode[index]
+if mode == 'decode':
+  message = message.split(' ')
+  for i in range(0,len(message)):
+    if message[i]+' ' in morsecode:
+      index = morsecode.index(message[i]+' ')
+      message[i] = characters[index]
+    else:
+      message[i] = ' '
+for i in range(0,len(message)):
+  string = string+message[i]
+print(string)
