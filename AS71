@@ -1,0 +1,12 @@
+import random
+characters = ['A','B','C','D','E','F','G','H']
+password = ''
+for i in range(0,4):
+  password = password+characters[random.randint(0,7)]
+while True:
+  guess = ''
+  for i in range(0,4):
+    guess = guess+characters[random.randint(0,7)]
+  print(guess)
+  if guess == password:
+    break
