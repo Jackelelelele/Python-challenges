@@ -1,0 +1,19 @@
+import random
+color = input('Input color')
+place = input('Input place')
+animal = input('Input animal')
+characters = [',','*',';','/','<','.']
+color = [char for char in color]
+random.shuffle(color)
+animal = [char for char in animal]
+animal = list(reversed(animal))
+random.shuffle(characters)
+password = ''
+for i in range(0,len(color)):
+  password = password+color[i]
+password = password+place
+for i in range(0,len(animal)):
+  password = password+animal[i]
+for i in range(0,len(characters)):
+  password = password+characters[i]
+print(password)
