@@ -1,0 +1,81 @@
+import random
+cards = ['2','3','4','5','6','7','8','9','10','J','Q','K','A']
+numbers = [2,3,4,5,6,7,8,9,10,10,10,10,11]
+value1 = 0
+value2 = 0
+def findvalue(cards1):
+  value = 0
+  A = 0
+  for i in range(0,len(cards1)):
+    value = value + numbers[cards.index(cards1[i])]
+  if value > 21:
+    for i in range(0,len(cards1)):
+      if cards1[i] == 'A':
+        A = A + 1
+    if A > 0:
+      value = value - 10
+      A = A - 1
+  return(value)
+cards1 = []
+cards2 = []
+dealercards = []
+number = 0
+for i in range(0,2):
+  cards1.append(cards[random.randint(0,12)])
+  number = random.randint(0,12)
+  cards2.append(cards[number])
+  dealercards.append(cards[number])
+dealercards[0] = 'Hidden'
+turns = 0
+while True:
+  print('Your cards')
+  print(cards1)
+  print(findvalue(cards1))
+  if turns == 0:
+    print('Dealer cards')
+    print(dealercards)
+  else:
+    print('Dealer cards')
+    print(cards2)
+  play = 1
+  if play == 1:
+    move = input('Hit or stand')
+    if move == 'stand':
+      play = 0
+    if move == 'hit':
+      cards1.append(cards[random.randint(0,12)])
+  turns = turns + 1
+  if findvalue(cards1) > 21:
+    print('Your cards')
+    print(cards1)
+    print('Bust')
+    break
+  if findvalue(cards2) < 17:
+    cards2.append(cards[random.randint(0,12)])
+  if findvalue(cards2) > 21:
+    print('Dealer cards')
+    print(cards2)
+    print('Dealer bust')
+    break
+  if play == 0 and findvalue(cards2) > 16:
+    if findvalue(cards1) > findvalue(cards2):
+      print('Your cards')
+      print(cards1)
+      print('Dealer cards')
+      print(cards2)
+      print('Player won')
+      break
+    elif findvalue(cards1) < findvalue(cards2):
+      print('Your cards')
+      print(cards1)
+      print('Dealer cards')
+      print(cards2)
+      print('Dealer won')
+      break
+    else:
+      print('Your cards')
+      print(cards1)
+      print('Dealer cards')
+      print(cards2)
+      print('Draw')
+      break
