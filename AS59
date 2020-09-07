@@ -1,0 +1,51 @@
+a = [' ',' ',' ']
+b = [' ',' ',' ']
+c = [' ',' ',' ']
+turn = 0
+arrays = [a,b,c]
+while True:
+  move1 = input('Input move')
+  move1 = [char for char in move1]
+  array = ['X','O']
+  if move1[0] == 'a':
+    if a[int(move1[1])-1] == ' ':
+      a[int(move1[1])-1] = array[turn%2]
+  elif move1[0] == 'b':
+    if b[int(move1[1])-1] == ' ':
+      b[int(move1[1])-1] = array[turn%2]
+  else:
+    if c[int(move1[1])-1] == ' ':
+      c[int(move1[1])-1] = array[turn%2]
+  turn = turn + 1
+  print(a)
+  print(b)
+  print(c)
+  for i in range(0,2):
+    if arrays[i] == ['X','X','X']:
+      print('Player 1 wins')
+      break
+    elif arrays[i] == ['O','O','O']:
+      print('Player 2 wins')
+      break
+  for i in range(0,2):
+    if a[i]+b[i]+c[i] == 'XXX':
+      print('Player 1 wins')
+      break
+    elif a[i]+b[i]+c[i] == 'OOO':
+      print('Player 2 wins')
+      break
+  if a[0]+b[1]+c[2] == 'XXX':
+    print('Player 1 wins')
+    break
+  if a[0]+b[1]+c[2] == 'OOO':
+    print('Player 2 wins')
+    break
+  if a[2]+b[1]+c[0] == 'XXX':
+    print('Player 1 wins')
+    break
+  if a[2]+b[1]+c[0] == 'OOO':
+    print('Player 2 wins')
+    break
+  if turn == 9:
+    print('Draw')
+    break
