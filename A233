@@ -1,0 +1,19 @@
+n = int(input('Input number'))
+def tribonacci(n):
+  if n == 0 or n == 1:
+    return(0)
+  elif n == 2:
+    return(1)
+  else:
+    return(tribonacci(n-1) + tribonacci(n-2) + tribonacci(n-3))
+
+def tetranacci(n):
+  if n == 0 or n == 1 or n == 2:
+    return(0)
+  elif n == 3:
+    return(1)
+  else:
+    return(tetranacci(n-1) + tetranacci(n-2) + tetranacci(n-3) + tetranacci(n-4))
+
+print(tribonacci(n))
+print(tetranacci(n))
