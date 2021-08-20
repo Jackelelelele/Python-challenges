@@ -1,0 +1,33 @@
+mylist = []
+searchnumber = 0
+min = 0
+max = len(mylist)
+found = False
+guess = int((min+max)/2)
+count = 0
+while found == False and min <= max and count < 5:
+  guess = int((min+max)/2)
+  if mylist[guess] == searchnumber:
+    found = True
+    print(searchnumber)
+  elif mylist[guess] > searchnumber:
+    max = guess
+  else:
+    min = guess
+  count = count + 1
+mylist.sort()
+min = 0
+max = len(mylist)
+count = 0
+while found == False and min <= max and count < 5:
+  guess = int((min+max)/2)
+  if mylist[guess] == searchnumber:
+    found = True
+    print(searchnumber)
+  elif mylist[guess] > searchnumber:
+    max = guess
+  else:
+    min = guess
+  count = count + 1
+if found == False:
+  print('Not found')
