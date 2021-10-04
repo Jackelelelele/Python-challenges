@@ -1,0 +1,75 @@
+import random
+
+class Character:
+    def __init__(self, name, attack, defence, health):
+        self.name = name
+        self.attack = attack
+        self.defence = defence
+        self.health = health
+
+    def print_basics(self):
+        print("Name: ", self.name)
+        print("Attack: ", self.attack)
+        print("Defence: ", self.defence)
+        print("Health: ", self.health)
+
+    def attackaction(self, damage):
+        print(self.name + " attacks for " + str(damage) + " damage." + '\n')
+
+    def defendaction(self, damage):
+        self.health -= damage
+
+    def healaction(self, heal):
+        print(self.name + " heals for " + str(heal) + " health.")
+        self.health += heal
+
+    def check_health(self):
+        if self.health <= 0:
+            return False
+        else:
+            return True
+
+print("Welcome to the RPG Game!" + "\n")
+
+name = input("Input Character Name: ")
+
+print("Now, our fair algorithm will choose your character's stats.")
+print("\nLoading", end="")
+
+print(".", end="")
+
+print(".", end="")
+
+print(".", end="\n")
+print("Your character's stats are:")
+you = Character(name, random.randint(30,50), random.randint(30,50), random.randint(30, 50))
+you.print_basics()
+
+print("ENEMY APPROACHING")
+print("a Enemy warrior has appeared!" + "\n")
+
+enemy = Character("Enemy Warrior", random.randint(30, 50), random.randint(30, 50), random.randint(30, 50))
+
+enemy.print_basics()
+
+
+while you.check_health() and enemy.check_health():
+  while True:
+    action = input('Would you like to attack or heal?')
+    if action == 'attack':
+      number = int(((you.attack+random.randint(1, 10)))/3)
+      you.attackaction(number)
+      enemy.defendaction(number)
+    else:
+      you.healaction(random.randint(1, 10))
+    if enemy.check_health() == False:
+      print("\n" + "You have won the fight!")
+      break
+    number = int(((you.attack+random.randint(1, 10)))/3)
+    enemy.attackaction(number)
+    you.defendaction(number)
+    you.print_basics()
+    enemy.print_basics()
+    if you.check_health() == False:
+      print("\n" + "You have lost the fight!")
+      break
